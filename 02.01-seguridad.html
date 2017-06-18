@@ -1,0 +1,140 @@
+<!doctype html>
+<!--
+TODO:
+ * Traducir al español
+ * Eliminar referencias a wikipedia innecesarias
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>Seguridad en IPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo"> Seguridad en IPv6 </h1>
+        </div>
+        <div class="slide">
+            <h1>Contenido del tema</h1>
+            <ul>
+                <li>IPSec
+                <ul>
+                <li>Autenticación</li>
+                <li>Túneles</li>
+            </ul></li>
+            <li>Problemas sin resolver</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>IPSec</h1>
+            <ul>
+                <li>Es un conjunto de protocolos cuya misión es asegurar comunicaciones IP</li>
+                <li>Parte de los mecanismos IPSec son obligatorios en IPv6</li>
+                <li>Es opcional en IPv4</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1> Nuevos mecanismos de seguridad de serie en el protocolo</h1>
+            <ul>
+                <li>Modo Túnel</li>
+                <li>Modo Transporte</li>
+                <ul>
+                    <li>Autenticación</li>
+                    <li>Encriptado</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1> Elementos requeridos</h1>
+            <ul>
+                <li>SPD: Security Policy Database (Base de datos de políticas de seguridad)</li>
+                <li>SAD: Security Association Database (Base de datos de asociaciones de seguridad)</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1> Autenticación</h1>
+            <ul>
+                <li>Se utiliza la extensión de la cabecera 51</li>
+                <li>Mantiene información de la secuencia de datos y del resto de contenidos</li>
+                <li>Se utiliza un secreto predefinido como <em>salt</em></li>
+                <li>Hay dos algoritmos incluidos en la especificación:</li>
+                <ul>
+                    <li>MD5</li>
+                    <li>SHA-1</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1> Campos autenticados en el modo transporte</h1>
+            <ul>
+                <li>La propia cabecera de autenticación</li>
+                <li>Las cabeceras posteriores</li>
+                <li>El contenido (payload)</li>
+                <li>En la cabecera principal</li>
+                <ul>
+                    <li>Payload length</li>
+                    <li>Next Header</li>
+                    <li>Source</li>
+                    <li>Destination</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Campos autenticados en modo transporte</h1>
+            <img src="transport-authentication-header.png" />
+        </div>
+        <div class="slide">
+            <h1>Campos autenticados en modo túnel</h1>
+            <img src="tunnel-encryption-header.png" />
+        </div>
+        <div class="slide">
+            <h1>Encriptación</h1>
+            <ul>
+                <li>Se utiliza la extensión de cabecera 50</li>
+                <li>El único algoritmo en la especificación es DES-CBC</li>
+                <li>La cabecera de encriptación no incluye un campo para siguiente cabecera. Algunos campos están incluidos en un "trailer" después del payload</li>
+        </ul>
+        </div>
+        <div class="slide">
+            <h1>Campos encriptados en modo transporte</h1>
+            <img src="transport-encryption-header.png" />
+        </div>
+        <div class="slide">
+            <h1>Campos encriptados en modo túnel</h1>
+            <img src="tunnel-encryption-header.png" />
+        </div>
+        <div class="slide">
+            <h1>Gestión de claves</h1>
+            <ul>
+                <li>Habitualmente se ejecuta como demonio</li>
+                <li>Crea asociaciones de seguridad y distribuye claves</li>
+                <li>Primero debe crear una comunicación segura con el cliente, para luego distribuir la clave</li>
+                <li>Hubo una revisión del protocolo en 2005</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Problemas de seguridad sin resolver en IPV6</h1>
+            <ul>
+                <li>Seguridad dentro del túnel</li>
+                <li>Encriptación y autenticado con NAT</li>
+                <li>QoS y el descarte de paquetes</li>
+                <li>IP Móviles</li>
+        </ul>
+        </div>
+    </div>
+</body>
+</html>

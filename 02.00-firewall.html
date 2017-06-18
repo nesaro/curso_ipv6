@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+TODO:
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>Firewalls en IPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">Cortafuegos en IPv6</h1>
+        </div>
+        <div class="slide">
+            <h1>Cambios respecto a IPv4</h1>
+            <ul>
+                <li>La desaparición del NAT elimina la mayoría de los cortafuegos pequeños</li>
+                <li>Los cortafuegos serán imprescindibles en los entornos caseros</li>
+                <li>La restricción de ICMP no es tan simple como en IPv4</li>
+                <li>El firewall debe soportar las extensiones de cabecera</li>
+                <li>El firewall no debe filtrar los paquetes fragmentados</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Filtrado de ICMP</h1>
+            <ul>
+                <li>No se puede filtrar "paquete muy grande"</li>
+                <li>No se puede filtrar "Tiempo excedido"</li>
+                <li>No se puede filtrar las solicitudes y anuncios de vecindario</li>
+                <li>No se puede filtrar las solicitudes y anuncios de routers</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

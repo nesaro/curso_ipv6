@@ -1,0 +1,157 @@
+<!doctype html>
+<!--
+TODO:
+ * Traducir al español
+ * Eliminar referencias a wikipedia innecesarias
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>Conceptos básicos IPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">Conceptos básicos IPv6</h1>
+        </div>
+        <div class="slide">
+            <h1>Contenido del tema</h1>
+            <ul>
+                <li>Introducción</li>
+                <li>Encadenado de cabeceras</li>
+                <li>Fragmentado de paquetes</li>
+                <li>DNS</li>
+                <li>DHCPv6</li>
+                <li>Descubrimiento del vecindario</li>
+                <li>Descubrimiento de routers</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Historia de IPv6</h1>
+            <ul>
+                <li>Comienza a desarrollarse en 1994 por IETF</li>
+                <li>Al igual que IPv4 comenzó como un cojunto de protocolos</li>
+                <li>Es posible consultar por internet cualquiera de los RFC</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Encadenado de cabeceras</h1>
+            <ul><li> La concatenación de cabeceras se utiliza como mecanismo para ahorrar espacio</li></ul>
+            <center><table class="wikitable">
+                <tr><th>valor decimal</th><th>funcion</td></th>
+                <tr><td>43</td><td>enrutado</td></tr>
+                <tr><td>44</td><td>fragmento</td></tr>
+                <tr><td>50</td><td>encriptado</td></tr>
+                <tr><td>51</td><td>autenticacion</td></tr>
+                <tr><td>59</td><td>no hay</td></tr>
+                <tr><td>60</td><td>opciones de destino</td></tr>
+                <tr><td>62</td><td>movilidad</td></tr>
+        </table></center>
+        </div>
+        <div class="slide">
+            <h1>Fragmentado en el cliente</h1>
+            <ul>
+                <li>El tamaño máximo de paquete se determina por ICMPv6</li>
+                <li>IPv6 intenta evitar el fragmentado</li>
+                <li>El MTU minimo es 1280 bytes</li>
+                <li>Solo el cliente puede fragmentar</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>DNS en IPV6</h1>
+            <ul>
+                <li>La implementación actual permite registros directos e inversos</li>
+                <li>4 de los servidores "root" son accesibles via IPV6:
+            <ul>
+                <li>B  2001:478:65::53</li>
+                <li>F 2001:500::1035 </li>
+                <li>H 2001:500:1::803f:235</li>
+                <li>M  2001:dc3::35 </li>
+            </ul></li>
+        </ul>
+    </div>
+
+        <div class="slide">
+            <h1>DNS en IPV6 (II)</h1>
+            <ul>
+            <li>El servicio para Resolución directa utiliza los registros AAAA</li>
+            <li>La resolución inversa se hace solicitando cada carácter hexadecimal separo por punto</li></ul>
+            <pre>
+            2001:610:508:110:2a0:c9ff:fedd:67e7
+            -&gt;
+            7.e.7.6.d.d.e.f.f.f.9.c.0.a.2.0.0.1.1.0.8.0.5.0.0.1.6.0.1.0.0.2.ip6.arpa.
+            </pre>
+
+        </div>
+
+        <div class="slide">
+            <h1>DHCP en IPV6</h1>
+            <ul>
+                <li>La autoconfiguración limita la necesidad de DHCP en IPv6</li>
+                <li>Permite configurar un abanico más amplio de opciones:
+                <ul>
+                    <li>DSTM (Tunel IPv4)</li>
+                    <li>DNS</li>
+                    <li><a href="http://es.wikipedia.org/wiki/Network_Information_Service" target="_blank">NIS</a></li>
+                    <li>NTP</li>
+                </ul></li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Neighbour Discovery</h1>
+            <ul><li> Permite descubrir que vecinos tenemos en la misma red física
+<pre>
+$ ip -6 neigh show
+2001:470:1f0a:1f2c:226:5aff:fe01:cc69 dev eth1 lladdr 00:26:5a:01:cc:69 REACHABLE
+fe80::226:5aff:fe01:cc69 dev eth1 lladdr 00:26:5a:01:cc:69 REACHABLE
+</pre></li>
+            <li>Es totalmente equivalente al comando arp (linux)
+<pre>
+$ arp 
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.1.130            ether   1c:af:f7:6e:ae:60   C                     eth1
+192.168.1.2              ether   00:26:5a:01:cc:69   C                     eth1
+192.168.1.1              ether   00:22:2d:41:61:fd   C                     eth1
+192.168.1.128            ether   00:23:b4:cb:db:b1   C                     eth1
+</pre></li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Router Discovery</h1>
+            <ul>
+                <li>Permite descubrir los routers en la red local</li>
+                <li>Puede ser solicitado por el cliente o generado por el router</li>
+                <li>Puede haber varios en una red, y cada uno de estos dirá cierta información por prefijo:
+                <ul>
+                    <li>MTU</li>
+                    <li>hop limit</li>
+                    <li>lifetime</li>
+                    <li>dirección pública</li>
+                    <li>stateless y/o stateful(DHCP)</li>
+                </ul></li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Router Discovery (II)</h1>
+            <ul>
+                <li><a href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/sag_ip_v6_imp_aa.mspx?mfr=true" target="_blank">Más información</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<!--
+TODO:
+ * Traducir al español
+ * Eliminar referencias a wikipedia innecesarias
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>Integración IPv4-IPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">Convivencia IPv4-IPv6</h1>
+        </div>
+        <div class="slide">
+            <h1>La pila dual</h1>
+            <ul>
+                <li>Hasta que las redes IPv6 se impongan, es necesario un mecanismo de convivencia</li>
+                <li>Vamos a explorar dos alternativas:
+                <ul>
+                    <li>Túneles y Traductores</li>
+                </ul></li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Métodos de Tunel</h1>
+            <ul>
+                <li>Manuales</li>
+                <li>Tunel Broker</li>
+                <li><strike>Automáticos</strike></li>
+                <li>6to4</li>
+                <li>6over4</li>
+                <li>ISATAP</li>
+                <li>Teredo</li>
+                <li>Tunel setup protocol</li>
+                <li>Dual Stack Transition Mechanism (DSTM)</li>
+                <li>Open VPN</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Túneles manuales</h1>
+            <ul>
+                <li>Permite comunicar islas IPv6</li>
+                <li>Se configura en el cliente y el servidor</li>
+                <li>Es transparente para las aplicaciones</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>6to4</h1>
+            <ul>
+                <li>Permite comunicar islas IPv6</li>
+                <li>No requiere configuración en el cliente</li>
+                <li>Es transparente para las aplicaciones</li>
+                <li>TODO: Como enruta?</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>6over4</h1>
+            <h2>6over4 RFC 2529</h2>
+            <ul>
+                <li>Permite comunicar islas IPv6</li>
+                <li>No requiere configuración en el cliente</li>
+                <li>Es transparente para las aplicaciones</li>
+                <li>Utiliza direcciones multicast IPV4</li>
+                <li>No escala en redes grandes</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Métodos de Traducción</h1>
+            <ul>
+                <li>NAT-PT</li>
+                <li>Socks</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>NAT-PT</h1>
+            <ul>
+                <li>Realiza el trabajo del NAT y traduce también el protocolo</li>
+                <li>No es transparente a las aplicaciones, requiere cambios para peticiones DNS o para FTP (DNS-ALG)</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Socks</h1>
+            <ul>
+                <li>Utiliza una arquitectura cliente servidor</li>
+                <li>El servidor genera una dirección IPv4 falsa y la comunicación se realiza a través de esta</li>
+                <li>En conversión 6-4 utiliza el algoritmo de traducción SIIT</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

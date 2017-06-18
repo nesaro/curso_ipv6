@@ -1,0 +1,152 @@
+<!doctype html>
+<!--
+TODO:
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>ICMPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">ICMPv6</h1>
+        </div>
+        <div class="slide">
+            <h1>Contenido del tema</h1>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Nuevos usos de icmpv6 </h1>
+            <ul>
+                <li>El tamaño máximo de paquete de una ruta debe descubrirse de antemano con ICMPv6</li>
+                <li>La parte de gestión de grupos multicast de IGMP ha sido incluida en ICMPv6</li>
+                <li>Funcionalidad ARP ha sido incluida en ICMPv6</li>
+                <li>Soporte para Mobile IPv6  ha sido incluido en ICMPv6</li>
+                <li>RFC 2463</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Jerarquía de mensajes ICMPv6</h1>
+            <ul>
+                <li>0-127:Errores
+                <ul>
+                    <li>Destination Unreachable (message type 1)</li>
+                    <li>Packet Too Big (message type 2)</li>
+                    <li>Time Exceeded (message type 3)</li>
+                    <li>Parameter Problem (message type 4)</li>
+                </ul>
+                </li>
+                <li>128-255:Información </li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Tipos de mensaje de destino inalcanzable</h1>
+            <ul>
+                <li>0: Sin ruta al destino</li>
+                <li>1: Comunicación con destino prohibida administrativamente</li>
+                <li>2: Fuera del ámbito de la dirección de origen</li>
+                <li>3: Dirección inalcanzable</li>
+                <li>4: Puerto inalcanzable</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Tipos de mensaje de tiempo excedido</h1>
+            <ul>
+                <li>0: Numero de saltos agotados</li>
+                <li>1: tiempo de reensamblaje de paquete agotado</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Tipos de mensaje de problema de parámetro</h1>
+            <ul>
+                <li>0: Campo erróneo en cabecera</li>
+                <li>1: Campo próxima cabecera desconocido</li>
+                <li>2: Opción ipv6 desconocida</li>
+                <li>En todas ellas se identifica el octeto en el que se encontró el error</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Mensajes informativos</h1>
+            <ul>
+                <li>Echo Request, Reply</li>
+                <li>Multicast Listener Query,Report,Done</li>
+                <li>Router y Network Solicitation, Advertisement. Redirect</li>
+                <li>Router Renumbering, ICMP Node Information Query, Response</li>
+                <li>Inverse ND Solicitation, Adv Message</li>
+                <li>Mobile: Home address discovery Request, Reply, Prefix Solicitation, Advertisement format</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Estructura de paquetes</h1>
+            <ul>
+                <li>Siempre precede una cabecera IPv6, con un nextheader 58</li>
+                <li>2bytes: tipo</li>
+                <li>1bytes: código</li>
+                <li>2bytes: Checksum</li>
+                <li>resto: datos (Varían según el tipo)</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Estructura de paquetes (II) </h1>
+            <table class="wikitable" style="text-align: center">
+                <tr>
+                    <th style="width:8.4%; border-bottom:none; border-right:none;">Despl. del Octeto</th>
+                    <th style="width:8.4%; border-left:none;"></th>
+                    <th colspan="8">0</th>
+                    <th colspan="8">1</th>
+                </tr>
+                <tr>
+                </tr>
+                    <th style="border-top: none"></th>
+                    <th>Despl. Bit</th>
+                    <th style="width:2.6%;">0</th>
+                    <th style="width:2.6%;">1</th>
+                    <th style="width:2.6%;">2</th>
+                    <th style="width:2.6%;">3</th>
+                    <th style="width:2.6%;">4</th>
+                    <th style="width:2.6%;">5</th>
+                    <th style="width:2.6%;">6</th>
+
+                    <th style="width:2.6%;">7</th>
+                    <th style="width:2.6%;">8</th>
+                    <th style="width:2.6%;">9</th>
+                    <th style="width:2.6%;">10</th>
+                    <th style="width:2.6%;">11</th>
+                    <th style="width:2.6%;">12</th>
+                    <th style="width:2.6%;">13</th>
+                    <th style="width:2.6%;">14</th>
+                    <th style="width:2.6%;">15</th>
+                <tr> 
+                    <th></th><th></th>
+                    <td colspan="2">Tipo</td>
+                    <td colspan="1">Código</td>
+
+                    <td colspan="2">CheckSum</td>
+                    <td colspan="11">Datos ...</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    TODO: Estructura individual?
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!doctype html>
+<!--
+TODO:
+ * Traducir al español
+ * Eliminar referencias a wikipedia innecesarias
+ * Diapositiva al principio del tema con las subsecciones
+ * Separadores de subsecciones
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>Estructura Paquetes IPv6</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">Paquetes IPv6</h1>
+        </div>
+        <div class="slide">
+            <h1>Contenido del tema</h1>
+            <ul>
+                <li>Cabecera principal</li>
+                <li>Cabecera de movilidad</li>
+                <li>Cabecera de destino</li>
+                <li>Cabecera Hop by Hop</li>
+                <li>Cabecera de enrutado</li>
+                <li>Cabecera de fragmentado</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Campos de la primera cabecera IPv6</h1>
+            <ul>
+                <li>Origen, Destino</li>
+                <li>versión de protocolo IP</li>
+                <li>Clase de trafico (para prioridad)</li>
+                <li>etiqueta de flujo (QoS)</li>
+                <li>Longitud de datos</li>
+                <li>Cabecera siguiente</li>
+                <li>Saltos restantes</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Cabecera IPv6</h1>
+            <table class="wikitable" style="text-align: center">
+                <tr>
+                    <th style="width:8.4%; border-bottom:none; border-right:none;">Despl. Octeto</th>
+                    <th style="width:8.4%; border-left:none;"></th>
+                    <th colspan="8">0</th>
+                    <th colspan="8">1</th>
+                    <th colspan="8">2</th>
+                    <th colspan="8">3</th>
+                </tr>
+                <tr>
+
+                    <th style="border-top: none"></th>
+                    <th>Despl. bit</th>
+                    <th style="width:2.6%;">0</th>
+                    <th style="width:2.6%;">1</th>
+                    <th style="width:2.6%;">2</th>
+                    <th style="width:2.6%;">3</th>
+                    <th style="width:2.6%;">4</th>
+                    <th style="width:2.6%;">5</th>
+                    <th style="width:2.6%;">6</th>
+
+                    <th style="width:2.6%;">7</th>
+                    <th style="width:2.6%;">8</th>
+                    <th style="width:2.6%;">9</th>
+                    <th style="width:2.6%;">10</th>
+                    <th style="width:2.6%;">11</th>
+                    <th style="width:2.6%;">12</th>
+                    <th style="width:2.6%;">13</th>
+                    <th style="width:2.6%;">14</th>
+                    <th style="width:2.6%;">15</th>
+
+                    <th style="width:2.6%;">16</th>
+                    <th style="width:2.6%;">17</th>
+                    <th style="width:2.6%;">18</th>
+                    <th style="width:2.6%;">19</th>
+                    <th style="width:2.6%;">20</th>
+                    <th style="width:2.6%;">21</th>
+                    <th style="width:2.6%;">22</th>
+                    <th style="width:2.6%;">23</th>
+                    <th style="width:2.6%;">24</th>
+
+                    <th style="width:2.6%;">25</th>
+                    <th style="width:2.6%;">26</th>
+                    <th style="width:2.6%;">27</th>
+                    <th style="width:2.6%;">28</th>
+                    <th style="width:2.6%;">29</th>
+                    <th style="width:2.6%;">30</th>
+                    <th style="width:2.6%;">31</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+
+                    <th>0</th>
+                    <td colspan="4">Versión</td>
+                    <td colspan="8">Clase de Tráfico</td>
+                    <td colspan="20">Etiqueta de Flujo</td>
+                </tr>
+                <tr>
+                    <th>4</th><th>32</th>
+                    <td colspan="16">Longitud del campo de datos</td>
+                    <td colspan="8">Cab. Siguiente</td>
+
+                    <td colspan="8">Lím. de Saltos</td>
+                </tr>
+                <tr>
+                    <th>8</th><th>64</th>
+                    <td colspan="32" rowspan="4">Dirección de Origen</td>
+                </tr>
+                <tr>
+                    <th>C</th><th>96</th>
+                </tr>
+
+                <tr> <th>10</th> <th>128</th> </tr>
+                <tr> <th>14</th> <th>160</th> </tr>
+                <tr>
+                    <th>18</th>
+                    <th>192</th>
+
+                    <td colspan="32" rowspan="4">Dirección de Destino</td>
+                </tr>
+                <tr> <th>1C</th> <th>224</th> </tr>
+                <tr> <th>20</th> <th>256</th> </tr>
+                <tr> <th>24</th> <th>288</th> </tr>
+            </table>
+        </div>
+        <div class="slide">
+            <h1> Cabecera Movilidad </h1>
+            <ul>
+                <li>Código de próxima cabecera: 135</li>
+                <li>Para Ipv6 Movil</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1> Cabecera de Destino y Hop By Hop </h1>
+            <ul>
+                <li>Cabecera de Destino
+            <ul>
+                <li>Código de próxima cabecera: 60</li>
+                <li>Para Ipv6 Movil y algunas aplicaciones</li>
+            </ul></li>
+            <li> Cabecera Hop by hop 
+            <ul>
+                <li>Código de próxima cabecera: 0</li>
+                <li>Se utiliza para establecer los Jumbo Datagram</li>
+                <li>Se utiliza para el protocolo Multicast listener discovery</li>
+                <li>Siempre debe ser la primera extensión</li>
+            </ul></li>
+        </ul>
+        </div>
+        <div class="slide">
+            <h1> Cabecera Hop by hop y Destino </h1>
+            <table class="wikitable" style="text-align: center">
+                <caption>Formato de cabecera de extensión <i>Hop-by-Hop Options</i> y <i>Destination Options</i></caption>
+
+                <tr>
+                    <th style="border-bottom:none; border-right:none;"><i>Offsets</i></th>
+                    <th style="border-left:none;">Octet</th>
+                    <th colspan="8">0</th>
+                    <th colspan="8">1</th>
+                    <th colspan="8">2</th>
+                    <th colspan="8">3</th>
+                </tr>
+                <tr>
+                    <th style="border-top: none">Octet</th>
+
+                    <th>Bit</th>
+                    <th style="width:2.6%;">0</th>
+                    <th style="width:2.6%;">1</th>
+                    <th style="width:2.6%;">2</th>
+                    <th style="width:2.6%;">3</th>
+                    <th style="width:2.6%;">4</th>
+                    <th style="width:2.6%;">5</th>
+                    <th style="width:2.6%;">6</th>
+                    <th style="width:2.6%;">7</th>
+
+                    <th style="width:2.6%;">8</th>
+                    <th style="width:2.6%;">9</th>
+                    <th style="width:2.6%;">10</th>
+                    <th style="width:2.6%;">11</th>
+                    <th style="width:2.6%;">12</th>
+                    <th style="width:2.6%;">13</th>
+                    <th style="width:2.6%;">14</th>
+                    <th style="width:2.6%;">15</th>
+                    <th style="width:2.6%;">16</th>
+
+                    <th style="width:2.6%;">17</th>
+                    <th style="width:2.6%;">18</th>
+                    <th style="width:2.6%;">19</th>
+                    <th style="width:2.6%;">20</th>
+                    <th style="width:2.6%;">21</th>
+                    <th style="width:2.6%;">22</th>
+                    <th style="width:2.6%;">23</th>
+                    <th style="width:2.6%;">24</th>
+                    <th style="width:2.6%;">25</th>
+
+                    <th style="width:2.6%;">26</th>
+                    <th style="width:2.6%;">27</th>
+                    <th style="width:2.6%;">28</th>
+                    <th style="width:2.6%;">29</th>
+                    <th style="width:2.6%;">30</th>
+                    <th style="width:2.6%;">31</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <th>0</th>
+
+                    <td colspan="8"><i>Próxima Cabecera</i></td>
+                    <td colspan="8"><i>Longitud de la Próxima Cabecera</i></td>
+                    <td colspan="16"><i>Opciones y relleno</i></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>32</th>
+                    <td colspan="32"><i>Opciones y relleno</i></td>
+                </tr>
+                <tr>
+                    <th>8</th>
+
+                    <th>64</th>
+                    <td colspan="32" rowspan="2">Opcional: más <i>Opciones y relleno</i> ...</td>
+                </tr>
+                <tr>
+                    <th>12</th>
+                    <th>96</th>
+                </tr>
+            </table>
+        </div>
+        <div class="slide">
+            <h1> Cabecera de Enrutado (Encaminamiento) </h1>
+            <ul>
+                <li>Código de Próxima Cabecera: 4</li>
+                <li>Para Ipv6 Móvil</li>
+                <li>Para enrutado desde la fuente</li>
+                <li>Puede causar problemas</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h1>Cabecera de enrutado</h1>
+            <table class="wikitable" style="text-align: center">
+                <caption>Formato de la cabecera de extensión de <i>Enrutado</i></caption>
+                <tr>
+                    <th style="border-bottom:none; border-right:none;"><i>Despl.</i></th>
+                    <th style="border-left:none;">Octeto</th>
+                    <th colspan="8">0</th>
+                    <th colspan="8">1</th>
+                    <th colspan="8">2</th>
+
+                    <th colspan="8">3</th>
+                </tr>
+                <tr>
+                    <th style="border-top: none">Octeto</th>
+                    <th>Bit</th>
+                    <th style="width:2.6%;">0</th>
+                    <th style="width:2.6%;">1</th>
+                    <th style="width:2.6%;">2</th>
+                    <th style="width:2.6%;">3</th>
+                    <th style="width:2.6%;">4</th>
+
+                    <th style="width:2.6%;">5</th>
+                    <th style="width:2.6%;">6</th>
+                    <th style="width:2.6%;">7</th>
+                    <th style="width:2.6%;">8</th>
+                    <th style="width:2.6%;">9</th>
+                    <th style="width:2.6%;">10</th>
+                    <th style="width:2.6%;">11</th>
+                    <th style="width:2.6%;">12</th>
+                    <th style="width:2.6%;">13</th>
+
+                    <th style="width:2.6%;">14</th>
+                    <th style="width:2.6%;">15</th>
+                    <th style="width:2.6%;">16</th>
+                    <th style="width:2.6%;">17</th>
+                    <th style="width:2.6%;">18</th>
+                    <th style="width:2.6%;">19</th>
+                    <th style="width:2.6%;">20</th>
+                    <th style="width:2.6%;">21</th>
+                    <th style="width:2.6%;">22</th>
+
+                    <th style="width:2.6%;">23</th>
+                    <th style="width:2.6%;">24</th>
+                    <th style="width:2.6%;">25</th>
+                    <th style="width:2.6%;">26</th>
+                    <th style="width:2.6%;">27</th>
+                    <th style="width:2.6%;">28</th>
+                    <th style="width:2.6%;">29</th>
+                    <th style="width:2.6%;">30</th>
+                    <th style="width:2.6%;">31</th>
+
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <th>0</th>
+                    <td colspan="8"><i>Próxima Cabecera</i></td>
+                    <td colspan="8"><i>Hdr Ext Len</i></td>
+                    <td colspan="8"><i>Routing Type</i></td>
+                    <td colspan="8"><i>Segmentos Pendientes</i></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+
+                    <th>32</th>
+                    <td colspan="32"><i>Type-specific Data</i></td>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <th>64</th>
+                    <td colspan="32" rowspan="2">Optional: more <i>Type-specific Data</i> ...</td>
+                </tr>
+                <tr>
+
+                    <th>12</th>
+                    <th>96</th>
+                </tr>
+            </table>
+        </div>
+        <div class="slide">
+            <h1>Cabecera de fragmentado</h1>
+            TODO
+        </div>
+        <div class="slide">
+            <h1>Cabecera de fragmentado</h1>
+            <table class="wikitable" style="text-align: center">
+                <caption>Formato de cabecera de extensión de <i>Fragmentado</i> </caption>
+
+                <tr>
+                    <th style="border-bottom:none; border-right:none;"><i>Despl.</i></th>
+                    <th style="border-left:none;">Octet</th>
+                    <th colspan="8">0</th>
+                    <th colspan="8">1</th>
+                    <th colspan="8">2</th>
+                    <th colspan="8">3</th>
+                </tr>
+                <tr>
+                    <th style="border-top: none">Octet</th>
+
+                    <th>Bit</th>
+                    <th style="width:2.6%;">0</th>
+                    <th style="width:2.6%;">1</th>
+                    <th style="width:2.6%;">2</th>
+                    <th style="width:2.6%;">3</th>
+                    <th style="width:2.6%;">4</th>
+                    <th style="width:2.6%;">5</th>
+                    <th style="width:2.6%;">6</th>
+                    <th style="width:2.6%;">7</th>
+
+                    <th style="width:2.6%;">8</th>
+                    <th style="width:2.6%;">9</th>
+                    <th style="width:2.6%;">10</th>
+                    <th style="width:2.6%;">11</th>
+                    <th style="width:2.6%;">12</th>
+                    <th style="width:2.6%;">13</th>
+                    <th style="width:2.6%;">14</th>
+                    <th style="width:2.6%;">15</th>
+                    <th style="width:2.6%;">16</th>
+
+                    <th style="width:2.6%;">17</th>
+                    <th style="width:2.6%;">18</th>
+                    <th style="width:2.6%;">19</th>
+                    <th style="width:2.6%;">20</th>
+                    <th style="width:2.6%;">21</th>
+                    <th style="width:2.6%;">22</th>
+                    <th style="width:2.6%;">23</th>
+                    <th style="width:2.6%;">24</th>
+                    <th style="width:2.6%;">25</th>
+
+                    <th style="width:2.6%;">26</th>
+                    <th style="width:2.6%;">27</th>
+                    <th style="width:2.6%;">28</th>
+                    <th style="width:2.6%;">29</th>
+                    <th style="width:2.6%;">30</th>
+                    <th style="width:2.6%;">31</th>
+                </tr>
+                <tr>
+                    <th>0</th>
+                    <th>0</th>
+
+                    <td colspan="8"><i>Próxima Cabecera</i></td>
+                    <td colspan="8"><i>Reservado</i></td>
+                    <td colspan="13"><i>Desplazamiento del fragmentado</i></td>
+                    <td colspan="2"><i>Reservado</i></td>
+                    <td colspan="1"><i>Más</i></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <th>32</th>
+                    <td colspan="32"><i>Identification</i></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

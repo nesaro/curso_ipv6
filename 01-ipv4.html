@@ -1,0 +1,326 @@
+<!doctype html>
+<!--
+Duración estimada: 3h - 10 min = 170 min
+4 minutos por diapositiva en promedio.
+Total diapositivas = 43
+
+TODO:
+ * Completar páginas que falten
+ * Gráficos explicativos
+-->
+<html>
+<head>
+<title>IPv4</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="fathom.min.js"></script>
+<link  href="presentation.css" rel="stylesheet" type="text/css">
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script>
+$(document).ready(function(){
+        $('#presentation').fathom();
+    });
+</script>
+</head>
+<body>
+    <div id="presentation">
+        <div class="slide">
+            <h1 id="prelogo">Curso IPv6</h1>
+            <h1 id="logo">IPv4</h1>
+        </div>
+        <div class="slide">
+            <h1>Contenido del tema (3h)</h1>
+            <ul>
+                <li>La situación actual (40m)</li>
+                <li>Historia de IPv4 (20m)</li>
+                <li>Los problemas de IPv4 (40m)</li>
+                <li>Estructura y funcionamiento de IPv4 (80m)</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1 id="prelogo">IPv4</h1>
+            <h1 id="logo"><a name="ipv4-status">la situación actual</a></h1>
+            <!-- SUB
+            40 minutos = 10 diapositivas 
+            -->
+        </div>
+
+
+        <div class="slide">
+            <h1>La situación actual: IPV4</h1>
+            <ul>
+                <li>A nivel IANA ya terminaron</li>
+                <li>A nivel RIPE, quedan...</li>
+                <li>A nivel de proveedor... <a href="http://alt1040.com/2011/04/nat-a-nivel-isp-la-solucion-elegida-por-telefonica-para-la-transicion-a-ipv6" target="_blank">noticias preocupantes</a></li>
+                <li>Visualmente: <ul>
+                    <li><a href="http://xkcd.com/195/" target="_blank">Mapa de 2006 xkcd</a></li>
+                    <li><a href="http://icicle.dylex.net/~ipmap/" target="_blank">Mapa de 2007 interactivo</a></li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>La época dorada</h2>
+            <h1>El crecimiento desmesurado de internet</h1>
+            <iframe width="425" height="349" src="http://www.youtube.com/embed/y8WqJum_Gfg" frameborder="0" allowfullscreen></iframe>
+            <script type="text/javascript" src="http://ipv6.he.net/v4ex/sidebar.js"></script>
+        </div>
+
+        <div class="slide">
+            <h1>El crecimiento desmesurado de internet (II)</h1>
+            <center><img src="http://www.potaroo.net/tools/ipv4/plotend.png" /></center>
+            <a href="http://www.potaroo.net/tools/ipv4/" target="_blank">IPv4 Address Report - potaroo.net</a>
+        </div>
+
+        <div class="slide">
+            <h1>El crecimiento desmesurado de internet (III)</h1>
+            <ul>
+                <li><a href="http://usgv6-deploymon.antd.nist.gov/cgi-bin/generate-com.v4" target="_blank">Estadisticas de servicios en internet en EEUU</a></li>
+            <li><a href="http://www.akamai.com/html/technology/dataviz1.html" target="_blank">Estadisticas de akamai e información en tiempo real</a></li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Precios de conexión por paises (I)</h1>
+            <center><img src="internetcost-1.jpg" /></center>
+        </div>
+
+        <div class="slide">
+            <h1>Precios de conexión por paises (II)</h1>
+            <center><img src="internetcost-2.jpg" /></center>
+        </div>
+
+        <div class="slide">
+            <h1>Cuando cuesta una IP</h1>
+            <ul>
+                <li><a href="http://tradeipv4.com/newbid/" target="_blank">http://tradeipv4.com</a></li>
+                <li>Surge como mecanismo provisional ante la ausencia de IPs</li>
+                <li><a href="http://www.theregister.co.uk/2011/04/21/trade_ipv4_com/" target="_blank">Datos de Abril de 2011</a></li>
+            </ul>
+        </div>
+
+
+        <div class="slide">
+            <h1 id="prelogo">IPv4</h1>
+            <h1 id="logo"><a name="ipv4-history">Historia de IPv4</a></h1>
+            <!-- SUB
+            20 minutos = 5 diapositivas -->
+        </div>
+        <div class="slide">
+            <h1>Los commienzos de TCP/IP</h1>
+            <ul>
+                <li>Fue encargado por DARPA para comunicar distintos equipos</li>
+                <li>Al principio se llamó ARPANET</li>
+                <li>Esta compuesto de varios protocolos, TCP, UDP, ICMP, IP</li>
+                <li>Las alternativas
+                <ul>
+                    <li>IPX</li>
+                </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Los commienzos de la red mundial</h1>
+            <ul>
+                <li>1969: Nace ARPANET</li>
+                <li>1979: Primeros documentos sobre IPv4</li>
+                <li>1979: Se suministra la primera pila a las universidades</li>
+                <li>1983: ARPANET utiliza TCP/IP</li>
+                <li>1983: ARPANET se separa en dos redes: Investigación y militar</li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Los commienzos de la red mundial (II)</h1>
+            <ul>
+                <li>1985: Aparece NSFNET como respuesta a la congestión</li>
+                <li>1986: Conectaba unos pocos nodos centrales por todo EEUU</li>
+                <li>1991: Advanced Network and Services crea ANSNET, que no dependia del gobierno de EEUU</li>
+                <li>Hoy en día la red es más distribuida y está conectada por Network Access Points </li>
+            </ul>
+        </div>
+
+        <div class="slide">
+            <h1>Los organismos que coordinan internet</h1>
+            <ul>
+                <li>Internet Architecture Board es el organismo principal
+                <ul>
+                    <li>IETF: Coordina el funcionamiento y evolución de los protocolos</li>
+                    <li>IRTF: Investigan actuales y nuevas funcionalidades para la red</li>
+                    <li>IANA: Se encarga de gestión de números. Está dividido en delegaciones continentales</li>
+                </ul>
+                </li>
+                <li>Más información: <a href="http://student.ing-steen.se/IPv4/TCP-IP.pdf" target="_blank">http://student.ing-steen.se/IPv4/TCP-IP.pdf</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- TODO: Expandir a partir del pdf la historia, para generar dos diapositivas más -->
+
+        <div class="slide">
+            <h1 id="prelogo">IPv4</h1>
+            <h1 id="logo"><a name="ipv4-problems">Problemas en IPv4</a></h1>
+            <!-- 40 minutos = 10 diapositivas -->
+        </div>
+
+
+        <div class="slide">
+            <h1>Problemas en IPv4</h1>
+            <h2>Las ips asignadas a empresas</h2>
+            <ul>
+                <li><a href="http://es.wikipedia.org/wiki/General_Electric" target="_blank">General Electric Company</a> tiene un /8 = 16777216 direcciones ips</li>
+                <li><a href="#status">Situación actual</a></li>
+            </ul>
+            <pre>
+                    $ whois 3.0.0.0/8
+
+                    [...]
+                    OrgName:        General Electric Company
+                    OrgId:          GENERA-9
+                    Address:        Internet Registrations
+                    Address:        3135 Easton Turnpike
+                </pre>
+            </div>
+            <div class="slide">
+                <h1>Problemas en IPv4 (II)</h1>
+                <ul>
+                    <li>Problemas de seguridad y parches: https, ssh</li>
+                    <li><a href="http://support.apple.com/kb/TS1208?viewlocale=es_ES&locale=es_ES" target="_blank">NAT doble</a></li>
+                    <li>La aparición de los dispositivos móviles</li>
+                    <li>La explosión de demanda</li>
+                </ul>
+            </div>
+
+
+        <div class="slide">
+            <h1 id="prelogo">IPv4</h1>
+            <h1 id="logo"><a name="ipv4-structure">Estructura de IPv4</a></h1>
+            <!-- SUB
+            30 minutos = 15 diapositivas 
+            +50 min?
+            -->
+        </div>
+
+            <div class="slide">
+                <h1>Enrutado y paquetes</h1>
+                <ul>
+                    <li>El paquete contiene una serie de campos para garantizar la llegada</li>
+                    <li>El servidor tiene un conjunto de reglas evaluadas de forma ordenada hasta que se encuentre alguna que encaje con la de entrada</li>
+                    <li>La lista de reglas se puede actualizar de forma manual o automática</li>
+                    <li>La red está dividida en sistemas autonomos</li>
+                </ul>
+                TODO: Foto
+            </div>
+            <div class="slide">
+                <h1> Niveles OSI</h1>
+                <center><img src="osi.svg" /></center>
+            </div>
+
+            <div class="slide">
+                <h1>TCP</h1>
+                <ul>
+                    <li>TCP es un protocolo orientado a conexión</li>
+                    <li>Está ubicado en la capa de transporte del modelo OSI</li>
+                    <li>Utiliza una negociación en 3 pasos</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h1>UDP</h1>
+                <ul>
+                    <li>UDP es un protocolo orientado a datagrama</li>
+                    <li>Está ubicado en la capa de transporte del modelo OSI</li>
+                    <li>Tiene mucho menor coste que TCP, pero no garantiza la llegada</li>
+                    <li>Algunos protocolos de nivel superior utilizan su propio control de errores</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h1>ICMP</h1>
+                <ul>
+                    <li>Está ubicado en la capa de transporte del modelo OSI</li>
+                    <li>Ofrece un conjunto de herramientas para diagnóstico de redes</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h1>ARP</h1>
+                <ul>
+                    <li>Está ubicado en la capa de enlace del modelo OSI</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h1>Servicios importantes en IPv4</h1>
+                <ul>
+                    <li>DNS</li>
+                    <li>Web</li>
+                    <li>Mail</li>
+                    <li>FTP</li>
+                </ul>
+            </div>
+
+            <div class="slide">
+                <h1>Estructura de un paquete IPV4</h1>
+                <table class="wikitable" style="text-align:center">
+                    <tr>
+                        <th width="4%">desplazamiento de bit </th>
+                        <th colspan="4" width="12%">0–3</th>
+                        <th colspan="4" width="12%">4–7</th>
+                        <th colspan="6" width="24%">8–13</th>
+                        <th colspan="2" width="6%">14-15</th>
+
+                        <th colspan="3" width="9%">16–18</th>
+                        <th colspan="13" width="39%">19–31</th>
+                    </tr>
+                    <tr>
+                        <th>0</th>
+                        <td colspan="4">Versión</td>
+                        <td colspan="4">Longitud de cabecera</td>
+                        <td colspan="6"><a href="http://es.wikipedia.org/wiki/Differentiated_Services_Code_Point" target="_blank">Differentiated Services Code Point</a></td>
+                        <td colspan="2">Notificación explicita de congestión</td>
+
+                        <td colspan="16">Longitud total</td>
+                    </tr>
+                    <tr>
+                        <th>32</th>
+                        <td colspan="16">Identificación</td>
+                        <td colspan="3">Flags</td>
+                        <td colspan="13">Desplazamiento de fragmento</td>
+                    </tr>
+                    <tr>
+                        <th>64</th>
+                        <td colspan="8"><a href="/wiki/Time_to_Live#IP_packets" title="Time to Live" class="mw-redirect" target="_blank">TTL</a></td>
+
+                        <td colspan="8">Protocolo</td>
+                        <td colspan="16">Checksum</td>
+                    </tr>
+                    <tr>
+                        <th>96</th>
+                        <td colspan="32">Origen</td>
+                    </tr>
+                    <tr>
+                        <th>128</th>
+                        <td colspan="32">Destino</td>
+                    </tr>
+
+                    <tr>
+                        <th>160</th>
+                        <td colspan="32" bgcolor="#FFBBBB">Opciones ( Si la longitud de cabecera&gt;5 )</td>
+                    </tr>
+                    <tr>
+                        <th>160<br />
+                            ó<br />
+                            192+</th>
+                        <td colspan="32">&#160;<br />
+                            Datos<br />
+                            &#160;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+
